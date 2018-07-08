@@ -7,7 +7,6 @@ import Toast from '../components/toast';
 class WeatherList extends Component{
 
     renderWeather(cityData){
-    try{
         const name = cityData.city.name;
         const temps = cityData.list.map(weather => weather.main.temp);
         const pressure = cityData.list.map(weather => weather.main.pressure);
@@ -22,11 +21,6 @@ class WeatherList extends Component{
                 <td> <Chart data={humidity} color='green' units='%'/> </td>
             </tr>
         );
-    }
-    catch(error){
-
-        return <td key={name}>Invalide cityname</td>;
-    }
     }
 
     render(){

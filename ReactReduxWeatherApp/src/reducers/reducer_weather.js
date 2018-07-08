@@ -10,7 +10,7 @@ export default function(state = [], action){
             return [action.payload.data, ...state];
 
         case FETCH_ERROR : 
-            return [...state, ];
+            return [...state ];
     }
     return state; 
 }
