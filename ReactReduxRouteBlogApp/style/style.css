@@ -1,0 +1,11 @@
+form a{
+    margin-left: 5px;
+}
+
+.text-xs-right{
+    margin-top: 10px;
+}
+
+.btn.btn-danger.pull-xs-right{
+    margin-top: 10px;
+}
