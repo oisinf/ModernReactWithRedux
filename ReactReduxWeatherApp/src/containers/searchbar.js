@@ -23,7 +23,7 @@ class SearchBar extends Component{
         
         //Need to now make API request
         this.props.fetchWeather(this.state.term);
-
+        
         this.setState({term: ''});
     }
 
@@ -32,7 +32,7 @@ class SearchBar extends Component{
         <form onSubmit={this.onFormSubmit}
             className='input-group'>
         <input
-            placeholder='Get a 5 day forecase in your favourite cities'
+            placeholder='Get a 5 day forecast in your favourite cities'
             className='form-control'
             value={this.state.term}
             onChange={this.onInputChange}/>
@@ -48,7 +48,9 @@ class SearchBar extends Component{
 function mapDispatchToProps(dispatch){
     return bindActionCreators({fetchWeather}, dispatch);
 }
-
+function mapStateToProps({error}){
+    return {error}; 
+}
 //Passing null for the first argument, doesn't care about state i.e. first arg is state, 
 //this container doesn't care about state
-export default connect(null, mapDispatchToProps)(SearchBar);
+export default connect(null, mapDispatchToProps, mapStateToProps)(SearchBar);
