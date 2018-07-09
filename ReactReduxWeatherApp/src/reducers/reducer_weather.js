@@ -1,17 +1,13 @@
 import { FETCH_WEATHER, FETCH_ERROR} from "../actions/index";
 
-export default function(state = [], action){
+export default function(state , action){
     //console.log('Action recieved', action);
     switch (action.type){
         case FETCH_WEATHER :
-        //Never manipulate state, return new state instead 
-        //console.log("Action", action.error);
-        //console.log("Payload", action.payload.;
-            return [action.payload.data, ...state];
+            return {weatherData: [action.payload.data, ...state.weatherData], invalidInput : false};
 
         case FETCH_ERROR : 
-            //console.log("Reducer");
-            return { weather: [...state], invalidInput : true};
+            return { weatherData: [...state.weatherData],  invalidInput : true};
     }
-    return state; 
+    return {weatherData : [], invalidInput: false}; 
 }

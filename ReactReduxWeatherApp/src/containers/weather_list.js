@@ -23,7 +23,6 @@ class WeatherList extends Component{
     }
 
     render(){
-
         return (
             <table className='table table-hover'>
                 <thead>
@@ -43,11 +42,10 @@ class WeatherList extends Component{
 }
 
 function mapStateToProps(state){
-    
     if(state.weather.invalidInput){
-    return {weather: state.weather.weather};
+    return {weather: state.weather.weatherData};
     }
-    return {weather: state.weather};
+    return {weather: state.weather.weatherData};
 }
 
 export default connect(mapStateToProps)(WeatherList)
