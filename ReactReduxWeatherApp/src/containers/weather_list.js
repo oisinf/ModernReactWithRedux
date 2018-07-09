@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Chart from '../components/chart';
 import GoogleMap from '../components/google_map';
-import Toast from '../components/toast';
 
 class WeatherList extends Component{
 
@@ -24,9 +23,7 @@ class WeatherList extends Component{
     }
 
     render(){
-        //Need to create a new component i.e an toast alert to deal with
-        //404 errors
-        //console.log(this.props.weather);
+
         return (
             <table className='table table-hover'>
                 <thead>
@@ -45,10 +42,12 @@ class WeatherList extends Component{
     }
 }
 
-function mapStateToProps({weather}){
-    //Same as return {weather: weather} i.e {weather: state.weather} if args was state not weather
-    //Need error checking if not a valid search bar input
-    return { weather };
+function mapStateToProps(state){
+    
+    if(state.weather.invalidInput){
+    return {weather: state.weather.weather};
+    }
+    return {weather: state.weather};
 }
 
 export default connect(mapStateToProps)(WeatherList)

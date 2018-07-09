@@ -10,7 +10,8 @@ export default function(state = [], action){
             return [action.payload.data, ...state];
 
         case FETCH_ERROR : 
-            return [...state ];
+            //console.log("Reducer");
+            return { weather: [...state], invalidInput : true};
     }
     return state; 
 }
