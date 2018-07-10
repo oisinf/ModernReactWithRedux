@@ -6,6 +6,23 @@ form a{
     margin-top: 10px;
 }
 
-.btn.btn-danger.pull-xs-right{
+.btn-danger.pull-xs-right{
     margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-primary{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+#cancel{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+#content{
+    height: 200px;
+    max-height: 250px;
+}
+#content-show, #categories-show, #title-show{
+    margin-bottom: 20px;
 }

@@ -8,10 +8,16 @@ class PostsNew extends Component{
     renderField(field){
         const {meta: {touched, error} } = field; 
         const className = `form-group ${touched && error ? 'has-danger': ''}`;
+        var InputType = 'input';
+        var rows = '1';
+        if(field.input.name=="content"){
+            InputType = 'textarea';
+            rows = '6';
+        }
         return (
         <div className={className}>
             <label>{field.label}</label>
-            <input className="form-control"
+            <InputType rows={rows} id={field.input.name} className="form-control"
                 type="text"
                 {...field.input}
             />
@@ -47,7 +53,7 @@ class PostsNew extends Component{
                 component={this.renderField}
                 />
                 <button type="submit" className="btn btn-primary">Submit</button>
-                <Link to="/" className="btn btn-danger">Cancel</Link>
+                <Link id="cancel" to="/" className="btn btn-danger">Cancel</Link>
             </form>
         );
     };
